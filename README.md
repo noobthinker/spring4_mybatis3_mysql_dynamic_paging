@@ -79,15 +79,15 @@ public interface UserService {
      * @param size  fetch size 
      * @return 
      */  
-    public List<User> getUserByList(Integer begin,Integer size);  
+     public List<User> getUserByList(Integer begin,Integer size);  
 /** 
-     * paging get user log info 
+     * paging get user log info
      * @param userId user id
      * @param begin begin position
      * @param size fetch size
      * @return 
      */  
-    public List<FunLog> getUserLogsList(Integer userId,Integer begin,Integer size);  
+     public List<FunLog> getUserLogsList(Integer userId,Integer begin,Integer size);  
 }  
 
 
