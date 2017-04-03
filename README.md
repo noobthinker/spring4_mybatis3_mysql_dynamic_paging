@@ -18,18 +18,31 @@ MyBatis Generator link:http://www.mybatis.org/generator/
 PROCEDURE:dynamic_paging 
 
 CREATE PROCEDURE  `dynamic_paging`(sql varchar(500),page_begin int,page_end int)
+
 BEGIN
+
 set @lowercase:=lower(sql);
+
 if(!LOCATE('delete',@lowercase) && !LOCATE('drop',@lowercase) && !LOCATE('truncate',@lowercase) && !LOCATE('update',@lowercase) && !LOCATE('delete',@lowercase) && !LOCATE('alter',@lowercase) )then
+
 set @temp:='';
+
 if(LOCATE('select',tab))then
+
 set @temp:=concat(tab,' limit ',page_begin,',',page_end);
+
 PREPARE stmt FROM @temp;
+
 EXECUTE stmt;
+
 DEALLOCATE PREPARE stmt;
+
 end if;
+
 end if;
+
 END 
+
 
 
 
@@ -71,15 +84,15 @@ public interface UserService {
      * @param size  fetch size 
      * @return 
      */  
-    public List<User> getUserByList(Integer begin,Integer size);  
+     public List<User> getUserByList(Integer begin,Integer size);  
 /** 
-     * paging get user log info 
+     * paging get user log info
      * @param userId user id
      * @param begin begin position
      * @param size fetch size
      * @return 
      */  
-    public List<FunLog> getUserLogsList(Integer userId,Integer begin,Integer size);  
+     public List<FunLog> getUserLogsList(Integer userId,Integer begin,Integer size);  
 }  
 
 
