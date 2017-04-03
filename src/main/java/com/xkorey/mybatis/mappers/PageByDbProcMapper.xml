@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xkorey.mybatis.dao.PageByDbProcMapper">
+
+	<resultMap id="BaseResultMap" type="com.xkorey.mybatis.models.User">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="userName" jdbcType="VARCHAR" property="userName" />
+		<result column="userAge" jdbcType="INTEGER" property="userAge" />
+		<result column="userAddress" jdbcType="VARCHAR" property="userAddress" />
+	</resultMap>
+	
+	<resultMap id="BaseResultMapFunLog" type="com.xkorey.mybatis.models.FunLog">
+    	<id column="id" jdbcType="BIGINT" property="id" />
+  	</resultMap>
+  	<resultMap extends="BaseResultMapFunLog" id="ResultMapWithBLOBs" type="com.xkorey.mybatis.models.FunLog">
+    	<result column="info" jdbcType="LONGVARCHAR" property="info" />
+  	</resultMap>
+
+
+	<select id="getUsersByPage" resultMap="BaseResultMap"
+		parameterMap="getUsersPageMap" statementType="CALLABLE">
+		CALL dynamic_paging('select * from user',?,?)
+	</select>
+	
+	<select id="getUserLogs"  resultMap="ResultMapWithBLOBs"
+		parameterMap="getUsersLogPageMap" statementType="CALLABLE" lang="velocity" >
+		#set( $sql = 'SELECT * FROM user,fun_log f where f.user_id=user.id and user.id='+$_parameter.userId ) 
+		#set( $begin=$_parameter.pageBegin)
+		#set( $size=$_parameter.fetchSize)
+		CALL dynamic_paging(@{sql},@{begin},@{size})
+	</select>
+
+
+
+	<parameterMap type="java.util.Map" id="getUsersPageMap">
+		<parameter property="pageBegin" mode="IN" jdbcType="INTEGER" />
+		<parameter property="fetchSize" mode="IN" jdbcType="INTEGER" />
+	</parameterMap>
+	
+	
+	<parameterMap type="java.util.Map" id="getUsersLogPageMap">
+		<parameter property="userId" />
+		<parameter property="pageBegin"  />
+		<parameter property="fetchSize" />
+	</parameterMap>
+
+
+
+</mapper>

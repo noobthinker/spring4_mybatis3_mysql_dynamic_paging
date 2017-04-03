@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<classPathEntry location="e:/jar/mysql-connector-java-5.1.31.jar" />
+	<context id="context1">
+		<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/test"
+			driverClass="com.mysql.jdbc.Driver" password="yu" userId="root" />
+		<javaModelGenerator targetPackage="com.xkorey.mybatis.models"
+			targetProject="s4m3-github\src\main\java" />
+		<sqlMapGenerator targetPackage="com.xkorey.mybatis.mappers"
+			targetProject="s4m3-github\src\main\java" />
+		<javaClientGenerator targetPackage="com.xkorey.mybatis.dao"
+			targetProject="s4m3-github\src\main\java" type="XMLMAPPER" />
+		<table tableName="user" domainObjectName="User"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="fun_log" domainObjectName="FunLog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+			<property name="useActualColumnNames" value="true" />
+		</table>
+	</context>
+</generatorConfiguration>
