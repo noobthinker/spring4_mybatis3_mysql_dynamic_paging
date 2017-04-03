@@ -3,10 +3,15 @@ spring4 mybatis3 mysql dynamic procedure paging
 
 project info
 
+eclipse,Maven,spring4,mybatis3,c3p0,mysql 
 
+using mybatis plugin: 
 
+MyBatis Velocity link:http://www.mybatis.org/velocity-scripting/index.html 
 
+Mybatis spring link:http://www.mybatis.org/spring/ 
 
+MyBatis Generator link:http://www.mybatis.org/generator/ 
 
 
 
@@ -105,5 +110,11 @@ Mybatis log:
 <==      Total: 2  
 <==    Updates: 0  
 
+
+more info 
+
+link: http://xkorey.iteye.com/blog/2367209
+link: http://xkorey.iteye.com/blog/2367212
+link: http://xkorey.iteye.com/blog/2367215
 
 
