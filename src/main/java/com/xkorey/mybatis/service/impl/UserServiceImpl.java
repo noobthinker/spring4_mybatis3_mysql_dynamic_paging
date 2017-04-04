@@ -36,4 +36,12 @@ public class UserServiceImpl implements UserService {
 		return pageDao.getUserLogs(page);
 	}
 
+	public List<Map<String, String>> getResultByMap() {
+		return pageDao.getMtypeList();
+	}
+	
+	
+	
+	
+
 }

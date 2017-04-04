@@ -1,6 +1,7 @@
 package com.xkorey.mybatis.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.xkorey.mybatis.models.FunLog;
 import com.xkorey.mybatis.models.User;
@@ -25,5 +26,8 @@ public interface UserService {
 	 * @return
 	 */
 	public List<FunLog> getUserLogsList(Integer userId,Integer begin,Integer size);
+	
+	
+	public List<Map<String,String>> getResultByMap();
 	
 }

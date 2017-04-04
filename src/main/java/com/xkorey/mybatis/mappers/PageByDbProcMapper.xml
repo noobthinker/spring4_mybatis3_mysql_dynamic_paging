@@ -45,5 +45,9 @@
 	</parameterMap>
 
 
+	<select id="getMtypeList" resultType="java.util.HashMap">
+    		select ID,USERNAME from user limit 0,10
+	</select>
+
 
 </mapper>
